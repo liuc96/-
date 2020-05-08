@@ -1,0 +1,102 @@
+{
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.fontSize": 18,
+    // 保存文件时按照eslint配置自动处理vue/js/jsx/ts/json文件格式
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    // 保存文件时自动格式化,主要针对html/css/less/scss等eslint未覆盖的文件格式
+    // "editor.formatOnSave": true,
+    "editor.tabCompletion": "on",
+    //显式弹出语法展开提示
+    "emmet.showSuggestionsAsSnippets": true,
+    //将语法展开提示在提示列表中置顶
+    "editor.snippetSuggestions": "top",
+    //emmet只显示标记语言和样式表的展开提示
+    "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+    //emmet能识别缩写语法的场景
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "typecript": "javascriptreact",
+        "vue-html": "html",
+    },
+    "emmet.triggerExpansionOnTab": true,
+    ////////////////////////////////////////////////////////////////////////
+    "eslint.options": {
+        // 应检查代码的文件扩展名数组
+        "extensions": [
+            ".js",
+            ".vue"
+        ]
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "vue"
+    ],
+    ////////////////////////////////////////////////////////////////////////
+    "files.autoSave": "afterDelay",
+    "files.associations": {
+        "*.vue": "vue"
+    },
+    "html.format.indentHandlebars": true,
+    "html.format.wrapAttributes": "force-expand-multiline",
+    ////////////////////////////////////////////////////////////////////////
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    ////////////////////////////////////////////////////////////////////////
+    // 不在这些文件中搜索 和 快速打开
+    "search.exclude": {
+        "**/Node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true
+    },
+    /* stylus 配置 start */
+    // 是否插入冒号
+    "stylusSupremacy.insertColons": false,
+    // 是否插入分号
+    "stylusSupremacy.insertSemicolons": false,
+    // 是否插入大括号
+    "stylusSupremacy.insertBraces": false,
+    // import之后是否换行
+    "stylusSupremacy.insertNewLineAroundImports": false,
+    // 两个选择器中是否换行
+    "stylusSupremacy.insertNewLineAroundBlocks": false,
+    /* stylus 配置 end */
+    ////////////////////////////////////////////////////////////////////////
+    // 对于.vue文件,关闭prettier,交给eslint fix
+    "vetur.format.defaultFormatter.js": "none",
+    "vetur.format.defaultFormatter.ts": "none",
+    "vetur.format.defaultFormatter.html": "prettier",
+    // 禁用vetur的lint 否则JSX语法 会导致vetur报错
+    "vetur.validation.template": false,
+    "vetur.validation.script": false,
+    ////////////////////////////////////////////////////////////////////////
+    // IDE左侧icon样式 plugin vscode-icons
+    "workbench.iconTheme": "vscode-icons",
+    // IDE 主题 plugin Night Owl
+    "workbench.colorTheme": "Night Owl",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // "[html]": {
+    //     "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+}
