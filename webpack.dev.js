@@ -6,7 +6,7 @@ const webpack = require('webpack')
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
-  devServer: {
+  devServer: { // https://www.webpackjs.com/configuration/dev-server/
     // webpack-dev-server 配置选项
     contentBase: path.join(__dirname, 'public'), // 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要
     clientLogLevel: 'error', // none, error, warning 或者 info（默认值） 开发工具(DevTools)的控制台(console)将显示消息
@@ -20,7 +20,9 @@ module.exports = merge(common, {
       builtAt: false, // 添加构建日期和构建时间信息
       assets: false, // 添加资源信息
       // chunks: false, // 添加 chunk 信息（设置为 `false` 能允许较少的冗长输出）
+      entrypoints: false, // 通过对应的 bundle 显示入口起点
       errors: true, // 添加错误信息
+      version: false, // 添加 webpack 版本信息
       modules: false, // 添加构建模块信息
       timings: true,
       errorDetails: false // 添加错误的详细信息（就像解析日志一样）

@@ -16,4 +16,4 @@ const produceNewsData = function () {
   return newsList
 }
 // url是真实的url，第二个参数是post和get都管，第三个参数就是传入函数对象
-Mock.mock('/mock/news', /post|get/i, produceNewsData)
+Mock.mock('/mock/userinfo', produceNewsData)

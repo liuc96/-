@@ -4,6 +4,7 @@ import router from './router/index'
 import store from './store'
 
 // Vue.config.productionTip = false
+require('./mock/global.js')
 
 new Vue({
   el: '#app',

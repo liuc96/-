@@ -1,14 +1,31 @@
 <template>
   <div class="home">
+    {{userInfo}}
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
+import axios from 'axios' // 引入axios
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
+
+  created () {
+    this.$store.dispatch({
+      type: 'global/REQUEST_LOGIN',
+      data: '12345'
+      //                    clientNum: 'o0CuEuC_Xuja13cETBa4lFDjjeZM',
+      // clientNum: this.$store.state.bill.clientNum,
+      // pageFirst: this.$store.state.bill.pageFirst
+    })
+  },
+
+  computed: {
+    ...mapGetters(['userInfo'])
+  },
 
   components: {
     HelloWorld

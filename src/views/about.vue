@@ -4,9 +4,21 @@ import axios from 'axios' // 引入axios
 import { Vue, Component } from 'vue-property-decorator'
 import { VNode, CreateElement } from 'vue'
 import { Module } from 'webpack'
+import { mapGetters } from 'vuex'
+import {
+  State,
+  Getter,
+  Action,
+  Mutation,
+  namespace
+} from 'vuex-class'
+
+// import data from '../mock/global.ts'
 
 @Component
 export default class About extends Vue {
+  @Getter('userInfo') getterUserInfo
+
   private count: number = 0
   private img: any = {
     src:
@@ -17,10 +29,24 @@ export default class About extends Vue {
     isLoad2: false
   }
 
-  private created (): void {
-    axios.get('/mock/news').then(res => { // url即在mock.js中定义的
-      console.log(res.data) // 打印一下响应数据
+  get name () {
+    return mapGetters({
+      getterpmInfo: 'getterpmInfo'
     })
+  }
+
+  private created (): void {
+    console.log(this.getterUserInfo)
+    console.log(this.$store.dispatch({
+      type: 'userInfo'
+      //                    clientNum: 'o0CuEuC_Xuja13cETBa4lFDjjeZM',
+      // clientNum: this.$store.state.bill.clientNum,
+      // pageFirst: this.$store.state.bill.pageFirst
+    }))
+
+    // axios.get('/mock/news').then(res => { // url即在mock.js中定义的
+    //   console.log(res.data) // 打印一下响应数据
+    // })
   }
 
   private increment (e: MouseEvent): void {
@@ -62,7 +88,7 @@ export default class About extends Vue {
         <div class="container">
           <div class="info"></div>
         </div>
-        <p>1223</p>
+        <p>{this.getterUserInfo}</p>
         <p>1223</p>
         <p>1223</p>
         <p>1223</p>
