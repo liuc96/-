@@ -17,7 +17,7 @@ module.exports = merge(common, {
     overlay: true, // 当存在编译错误或警告时，在浏览器中显示全屏覆盖
     // noInfo: true, // 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。
     stats: { // 统计信息
-      builtAt: false, // 添加构建日期和构建时间信息
+      builtAt: true, // 添加构建日期和构建时间信息
       assets: false, // 添加资源信息
       // chunks: false, // 添加 chunk 信息（设置为 `false` 能允许较少的冗长输出）
       entrypoints: false, // 通过对应的 bundle 显示入口起点

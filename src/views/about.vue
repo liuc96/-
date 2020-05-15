@@ -1,3 +1,62 @@
+<template>
+  <div class="count">
+    <div>
+      <input type="text" width="100" placeholder="test" />
+    </div>
+    {{ count }}
+    <button class="button" @click="increment">
+      +
+    </button>
+
+    <div class="container">
+      <div class="info"></div>
+    </div>
+    <p>{{ getterUserInfo }}</p>
+    <p>2234</p>
+    <p>1223</p>
+    <p>1223</p>
+    <el-button :plain="true" @click="open">打开消息提示</el-button>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <div
+      class="bg"
+      style="background-image: url('https://comic-alive.jp/archives/010/201709/ed04bc40315a43455b9dbebea669a204.png');"
+    >
+      万物皆有缝隙，这是光进来的地方
+    </div>
+
+    <img
+      src="https://comic-alive.jp/archives/010/201709/ed04bc40315a43455b9dbebea669a204.png"
+      alt=""
+    />
+    <img
+      class="img"
+      src="@/assets/images/ed04bc40315a43455b9dbebea669a204.gif"
+
+      alt="背景图"
+    />
+
+    <!-- <div class="placeholder" style="">
+      <img :src="img.src" class={{ loaded: this.img.isLoad, 'img-small': true }}
+      @load="imgLoad" /> {{ imgLoadNode() }}
+      <div style="padding-bottom: 66.6%;"></div>
+    </div> -->
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+    <p>1223</p>
+  </div>
+</template>
 
 <script lang="tsx">
 import axios from 'axios' // 引入axios
@@ -36,9 +95,8 @@ export default class About extends Vue {
   }
 
   private created (): void {
-    console.log(this.getterUserInfo)
     console.log(this.$store.dispatch({
-      type: 'userInfo'
+      type: 'global/REQUEST_LOGIN'
       //                    clientNum: 'o0CuEuC_Xuja13cETBa4lFDjjeZM',
       // clientNum: this.$store.state.bill.clientNum,
       // pageFirst: this.$store.state.bill.pageFirst
@@ -74,66 +132,11 @@ export default class About extends Vue {
     }
   }
 
-  private render (h: CreateElement): VNode {
-    return (
-      <div class="count">
-        <div>
-          <input type="text" width="100" placeholder="test" />
-        </div>
-        {this.count}
-        <button class="button" onClick={this.increment}>
-          +
-        </button>
+  // private render (h: CreateElement): VNode {
+  //   return (
 
-        <div class="container">
-          <div class="info"></div>
-        </div>
-        <p>{this.getterUserInfo}</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <div
-          class="bg"
-          style="background-image: url('https://comic-alive.jp/archives/010/201709/ed04bc40315a43455b9dbebea669a204.png');"
-        >万物皆有缝隙，这是光进来的地方</div>
-        {/* <img src="https://comic-alive.jp/archives/010/201709/ed04bc40315a43455b9dbebea669a204.png" alt=""/>
-        <img
-          class="img"
-          src={require('@/assets/images/ed04bc40315a43455b9dbebea669a204.gif')}
-          alt="背景图"
-        /> */}
-
-        <div
-          class="placeholder"
-          style=""
-        >
-          <img
-            src={this.img.src}
-            class={{ loaded: this.img.isLoad, 'img-small': true }}
-            onload={this.imgLoad}
-          />
-          {this.imgLoadNode()} {/* 图片懒加载 */}
-          <div style="padding-bottom: 66.6%;"></div>
-        </div>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-        <p>1223</p>
-      </div>
-    )
-  }
+  //   )
+  // }
 }
 
 </script>
@@ -143,7 +146,9 @@ export default class About extends Vue {
   font-size: 20px;
   color: rgb(12, 122, 123);
 }
-
+input {
+  color: blueviolet;
+}
 .button {
   height: 80px;
   width: 200px;
@@ -231,7 +236,7 @@ export default class About extends Vue {
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  background-image: url('../assets/images/ed04bc40315a43455b9dbebea669a204.gif');
+  background-image: url("../assets/images/ed04bc40315a43455b9dbebea669a204.gif");
 }
 
 .placeholder img {
