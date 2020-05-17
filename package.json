@@ -73,20 +73,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config webpack.dev.js",
-    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run build"
-  }
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build",
+    "precommit": "lint-staged"
   },
   "lint-staged": {
-    "app/**/*.{js,jsx}": [
-        "prettier --tab-width 4 --write",
-        "eslint --fix",
-        "git add"
+    "src/**/*.{js,vue,ts}": [
+      "eslint",
+      "git add"
     ]
-},
+  },
   "author": "",
   "license": "ISC"
 }

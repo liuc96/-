@@ -95,6 +95,8 @@ export default class About extends Vue {
     isLoad2: false
   }
 
+
+
   get name () {
     return mapGetters({
       getterpmInfo: 'getterpmInfo'
