@@ -100,7 +100,7 @@ export default class About extends Vue {
       getterpmInfo: 'getterpmInfo'
 
 
-      
+
     })
   }
 
