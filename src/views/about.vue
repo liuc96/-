@@ -11,11 +11,18 @@
     <div class="container">
       <div class="info"></div>
     </div>
-    <p>{{ getterUserInfo }}</p>
+
+    <div>
+      {{ data }}
+    </div>
+
+    <button @click="setData">设置data里的数据</button>
+
+    <p>{{ userInfo }}</p>
     <p>2234</p>
     <p>1223</p>
     <p>1223</p>
-    <el-button :plain="true" @click="open">打开消息提示</el-button>
+    <el-button :plain="true" >打开消息提示</el-button>
     <p>1223</p>
     <p>1223</p>
     <p>1223</p>
@@ -36,7 +43,6 @@
     <img
       class="img"
       src="@/assets/images/ed04bc40315a43455b9dbebea669a204.gif"
-
       alt="背景图"
     />
 
@@ -76,7 +82,8 @@ import {
 
 @Component
 export default class About extends Vue {
-  @Getter('userInfo') getterUserInfo
+  @Getter('userInfo') userInfo
+  @Getter('data') data
 
   private count: number = 0
   private img: any = {
@@ -95,16 +102,19 @@ export default class About extends Vue {
   }
 
   private created (): void {
-    console.log(this.$store.dispatch({
+    this.$store.dispatch({
       type: 'global/REQUEST_LOGIN'
-      //                    clientNum: 'o0CuEuC_Xuja13cETBa4lFDjjeZM',
-      // clientNum: this.$store.state.bill.clientNum,
-      // pageFirst: this.$store.state.bill.pageFirst
-    }))
+    })
 
     // axios.get('/mock/news').then(res => { // url即在mock.js中定义的
     //   console.log(res.data) // 打印一下响应数据
     // })
+  }
+
+  private setData ():void{
+    this.$store.dispatch({
+      type: 'global/SET_DATA'
+    })
   }
 
   private increment (e: MouseEvent): void {

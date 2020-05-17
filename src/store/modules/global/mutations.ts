@@ -6,6 +6,9 @@ const mutations = {
    */
   [types.SET_USERINFO] (state:any, userInfo:any) {
     state.userInfo = userInfo
+  },
+  [types.SET_DATA] (state:any, data:any) {
+    state.data = data
   }
 }
 

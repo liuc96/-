@@ -6,21 +6,23 @@
 
 ## **ToDoList**
 
-- [ ] 继续完善文档
-- [ ] 多入口应用
-- [ ] `SPA` 动态修改 页面 `title`信息方案
-- [ ] 按需引入ui
-- [ ] 选择移动端ui
-- [ ] 多页应用的路由及仓库
+- [x] 支持 `TypeScript`
 - [x] `eslint` 代码风格统一
 - [ ] git钩子强制代码风格一致
+- [ ] `SPA` 动态修改 页面 `title`信息方案
 - [x] api模块化
 - [x] `mock.js` 模拟请求
-- [ ] 封装axios
+- [ ] 封装 `axios` 处理请求
+- [ ] 封装 `vue-router` 路由守卫处理登录权限
+- [x] `vuex` 部分数据本地化永久存储
+- [x] 多页应用
+- [ ] 多页应用的路由及仓库
+- [ ] 单元测试
+- [x] 按需引入 `Element-UI`
+- [x] `webpack` 打包分析
+- [ ] 继续完善 `README.md`
 - [ ] api文档
 - [ ] 项目功能清单
-- [ ] 单元测试
-- [ ] 根据不同入口选择postcss插件
 
 
 
@@ -35,4 +37,4 @@
 | [Webpack](http://webpack.github.io/)         |   模块打包 | 4.42.0 |
 | [Babel](http://babeljs.cn/)                  | ES6转译ES5 | 7.9.0  |
 
-## 
+##

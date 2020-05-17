@@ -26,6 +26,53 @@ module.exports = {
       '@': resolve('src')
     }
   },
+  entry: {
+    // 多个入口文件
+    app: './src/main.ts',
+    admin: './src/admin.ts'
+    // mobile: './src/mobile.ts'
+    // vendor: vendorPkg
+  },
+  output: {
+    // 输出配置
+    // filename 用于输出文件的文件名。
+    filename: process.env.NODE_ENV === 'production'
+      ? './js/[name].[chunkhash].js'
+      : './js/[name].[hash].js',
+    // 动态导入 动态代码拆分
+    chunkFilename: process.env.NODE_ENV === 'production'
+      ? './js/[name].[chunkhash].bundle.js'
+      : './js/[name].[hash].bundle.js',
+    path: path.resolve(__dirname, 'dist'), // 目标输出目录 path 的绝对路径。
+    // 可以记住这个公式：
+    // 静态资源最终访问路径 = output.publicPath + 资源loader或插件等配置路径。
+    // 举个例子:
+    // publicPath 配置为 /dist/，图片的 url-loader 配置项为 name: 'img/[name].[ext]'
+    // 那么最终打包出来文件中图片的引用路径为 output.publicPath + 'img/[name].[ext]' = '/dist/img/[name].[ext]'。
+    publicPath: process.env.NODE_ENV === 'production'
+      ? ''
+      : ''
+  },
+  optimization: {
+    splitChunks: { // 分割代码块
+      cacheGroups: { // 缓存组
+        vendor: {
+          name: 'vendor',
+          test: module => { // vue相关抽离成vendor
+            return /vue/.test(module.context)
+          },
+          chunks: 'initial',
+          priority: 10
+        },
+        common: {
+          name: 'common',
+          chunks: 'initial',
+          priority: 2, // 权重
+          minChunks: 2 // 多次引用的的代码抽离到common
+        }
+      }
+    }
+  },
   module: {
     // 决定了如何处理项目中的不同类型的模块。
     rules: [
@@ -105,56 +152,23 @@ module.exports = {
       }
     ]
   },
-  entry: {
-    // 单个入口文件
-    app: './src/main.ts',
-    // admin: './src/admin.ts',
-    // mobile: './src/mobile.ts'
-    vendor: vendorPkg
-  },
-  output: {
-    // 输出配置
-    filename: process.env.NODE_ENV === 'production'
-      ? './js/[name].[chunkhash].js' : './js/[name].[hash].js', // filename 用于输出文件的文件名。
-    chunkFilename: process.env.NODE_ENV === 'production'
-      ? './js/[name].[chunkhash].bundle.js' : './js/[name].[hash].bundle.js', // 动态导入 动态代码拆分
-    path: path.resolve(__dirname, 'dist'), // 目标输出目录 path 的绝对路径。
-    // 可以记住这个公式：
-    // 静态资源最终访问路径 = output.publicPath + 资源loader或插件等配置路径。
-    // 举个例子:
-    // publicPath 配置为 /dist/，图片的 url-loader 配置项为 name: 'img/[name].[ext]'
-    // 那么最终打包出来文件中图片的引用路径为 output.publicPath + 'img/[name].[ext]' = '/dist/img/[name].[ext]'。
-    publicPath: process.env.NODE_ENV === 'production'
-      ? ''
-      : ''
-  },
-  optimization: {
-    splitChunks: { // 分割代码块
-      cacheGroups: { // 缓存组
-        vendor: {
-          name: 'vendor',
-          test: module => { // vue相关抽离成vendor
-            return /vue/.test(module.context)
-          },
-          chunks: 'initial',
-          priority: 10
-        },
-        common: {
-          name: 'common',
-          chunks: 'initial',
-          priority: 2, // 权重
-          minChunks: 2 // 多次引用的的代码抽离到common
-        }
-      }
-    }
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Output Management',
       inject: 'body',
       filename: 'index.html',
       favicon: './public/a.ico',
-      template: './public/index.html' // 注意这里需要引入 html-loader
+      template: './public/index.html',
+      chunks: ['common', 'vendor', 'app']
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Output Management',
+      inject: 'body',
+      filename: 'admin.html',
+      favicon: './public/a.ico',
+      template: './public/admin.html',
+      chunks: ['common', 'vendor', 'admin']
     }),
 
     // new WorkboxPlugin.GenerateSW({

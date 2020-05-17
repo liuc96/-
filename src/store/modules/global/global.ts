@@ -5,7 +5,8 @@ import * as types from './types'
 
 const state = {
   userInfo: {},
-  menuList: {}
+  menuList: {},
+  data: {}
 }
 
 export default {

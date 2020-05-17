@@ -20,7 +20,7 @@ module.exports = {
       }
     ],
     // element-ui按需引入插件
-    // ['component', { libraryName: 'element-ui', styleLibraryName: 'theme-chalk' }, 'element-ui'],
+    ['component', { libraryName: 'element-ui', styleLibraryName: 'theme-chalk' }, 'element-ui'],
 
     // vue-property-decorator 配置
     ['@babel/plugin-proposal-decorators', { legacy: true }],
