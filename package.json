@@ -77,7 +77,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint --ext .js src"
+      "pre-commit": "npm run dev"
     }
   },
   "lint-staged": {
