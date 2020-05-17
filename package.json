@@ -81,9 +81,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{vue,js}": [
+    "*.js": [
       "eslint --fix"
-  ]
+    ]
   },
   "author": "",
   "license": "ISC"
