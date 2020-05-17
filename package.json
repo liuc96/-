@@ -77,7 +77,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "eslint --fix --ext .vue src"
     }
   },
   "lint-staged": {
