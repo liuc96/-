@@ -104,6 +104,7 @@ export default class About extends Vue {
   private created (): void {
     this.$store.dispatch({
       type: 'global/REQUEST_LOGIN'
+
     })
 
     // axios.get('/mock/news').then(res => { // url即在mock.js中定义的

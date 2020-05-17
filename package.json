@@ -82,13 +82,13 @@
   },
   "lint-staged": {
     "src/**/*.vue": [
-      "eslint"
+      "eslint --fix --ext .vue src"
     ],
     "src/**/*.js": [
-      "eslint"
+      "eslint --fix --ext .js src"
     ],
     "src/**/*.ts": [
-      "eslint"
+      "eslint --fix --ext .ts src"
     ]
   },
   "author": "",
