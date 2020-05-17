@@ -77,10 +77,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "eslint src/**/*.vue",
       "pre-push": "npm test"
     }
-  }
+  },
   "lint-staged": {
     "src/**/*.{js,vue,ts}": [
       "eslint",
