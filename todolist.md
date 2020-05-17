@@ -7,8 +7,8 @@
 ## **ToDoList**
 
 - [x] 支持 `TypeScript`
-- [x] `eslint` 代码风格统一
-- [ ] git钩子强制代码风格一致
+- [x] `ESlint` 代码风格统一
+- [x] `git commit` 钩子验证代码风格
 - [ ] `SPA` 动态修改 页面 `title`信息方案
 - [x] api模块化
 - [x] `mock.js` 模拟请求
