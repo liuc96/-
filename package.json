@@ -77,13 +77,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
-    ]
+  　"src/**/*.{js,vue}": [
+  　  "eslint --fix",
+  　  "git add"
+  　]
   },
   "author": "",
   "license": "ISC"
