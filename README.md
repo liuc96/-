@@ -61,6 +61,8 @@ npm run analyz
 | 技术名称                                                     |              作用 |  版本  |
 | ------------------------------------------------------------ | ----------------: | :----: |
 | [Vue](http://cn.vuejs.org/)                                  |              框架 | 2.6.11 |
+| [vue-class-component](https://class-component.vuejs.org)     |   `Vue`支持类写法 | 7.2.3  |
+| [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) |     `Vue`类语法糖 | 8.4.0  |
 | [Vuex-class](https://github.com/ktsn/vuex-class)             |  `Vuex`支持类写法 | 0.3.2  |
 | [Vuex](https://vuex.vuejs.org/zh-cn/)                        |          状态管理 | 3.1.3  |
 | [vuex-persistedstate](https://www.npmjs.com/package/vuex-persistedstate) | ``Vuex`本地化存储 | 3.0.1  |
@@ -70,8 +72,7 @@ npm run analyz
 | [Webpack](http://webpack.github.io/)                         |          模块打包 | 4.42.0 |
 | [Babel](http://babeljs.cn/)                                  |    `ES6`转译`ES5` | 7.9.0  |
 | [Element-UI](https://element.eleme.cn/#/)                    |          `UI`组件 | 2.13.1 |
-| [vue-class-component](https://class-component.vuejs.org)     |   `Vue`支持类写法 | 7.2.3  |
-| [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) |     `Vue`类语法糖 | 8.4.0  |
+
 
 
 
