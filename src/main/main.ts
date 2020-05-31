@@ -9,7 +9,6 @@ import store from './store'
 // import 'element-ui/lib/theme-chalk/index.css'
 // Vue.use(Button)
 
-// Vue.config.productionTip = false
 // require('./mock/global.js')
 
 new Vue({

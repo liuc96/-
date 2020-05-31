@@ -22,7 +22,7 @@
     <p>2234</p>
     <p>1223</p>
     <p>1223</p>
-    <el-button :plain="true" >打开消息提示</el-button>
+    <el-button :plain="true">打开消息提示</el-button>
     <p>1223</p>
     <p>1223</p>
     <p>1223</p>
@@ -46,11 +46,6 @@
       alt="背景图"
     />
 
-    <!-- <div class="placeholder" style="">
-      <img :src="img.src" class={{ loaded: this.img.isLoad, 'img-small': true }}
-      @load="imgLoad" /> {{ imgLoadNode() }}
-      <div style="padding-bottom: 66.6%;"></div>
-    </div> -->
     <p>1223</p>
     <p>1223</p>
     <p>1223</p>
@@ -152,7 +147,7 @@ export default class About extends Vue {
 
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .count {
   font-size: 20px;
   color: rgb(12, 122, 123);

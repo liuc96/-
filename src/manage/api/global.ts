@@ -1,14 +1,4 @@
-import axios from 'axios'
-import { BASE_URL } from './config'
-export const requestLogin = (obj:any) => {
-  return new Promise((resolve, reject) => {
-    axios.get('/mock/userinfo')
-      .then(response => {
-        const resulData = response
-        resolve(resulData)
-      })
-      .catch(error => {
-        reject(error)
-      })
-  })
+import * as axios from './http'
+export const requestLogin = (params:any) => {
+  return axios.get('/mock/login', params)
 }

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "allowJs": true,
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
@@ -22,7 +23,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "src/main.js", "src/router/index.ts", "src/views/about.tsx", "src/mock/global.js"
+    "tests/**/*.tsx", "src/main.js", "src/router/index.ts", "src/views/about.tsx", "src/mock/global.js", "src/common/script/utils/http.ts"
   ],
   "exclude": ["node_modules"]
 }

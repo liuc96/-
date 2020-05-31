@@ -3,7 +3,7 @@ const path = require('path')
 // const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin') // 引入VUE插件
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成html入口文件 并把webpack 打包后的静态文件自动插入到这个html 文件当中。
-const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清理 /dist 文件夹
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清理dist文件夹
 const threadLoader = require('thread-loader') // 多线程打包
 
 threadLoader.warmup({
