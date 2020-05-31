@@ -5,7 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin') // 引入VUE插件
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成html入口文件 并把webpack 打包后的静态文件自动插入到这个html 文件当中。
 // const WorkboxPlugin = require('workbox-webpack-plugin') // PWA
 
-const vendorPkg = ['vue']
+const config = require('./webpack.config.js') // 打包配置文件
 
 function resolve (dir) {
   return path.join(__dirname, dir)
@@ -23,13 +23,16 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', 'tsx', '.vue'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      '@main': resolve('src/main'),
+      '@admin': resolve('src/admin'),
+      '@manage': resolve('src/manage'),
+      '@common': resolve('src/common')
     }
   },
   entry: {
-    // 多个入口文件
-    app: './src/main.ts',
-    admin: './src/admin.ts'
+    // 入口文件
+    [config.name]: config.entry
     // mobile: './src/mobile.ts'
     // vendor: vendorPkg
   },
@@ -43,7 +46,7 @@ module.exports = {
     chunkFilename: process.env.NODE_ENV === 'production'
       ? './js/[name].[chunkhash].bundle.js'
       : './js/[name].[hash].bundle.js',
-    path: path.resolve(__dirname, 'dist'), // 目标输出目录 path 的绝对路径。
+    path: path.resolve(__dirname, config.output), // 目标输出目录 path 的绝对路径。
     // 可以记住这个公式：
     // 静态资源最终访问路径 = output.publicPath + 资源loader或插件等配置路径。
     // 举个例子:
@@ -154,22 +157,22 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      // title: 'Output Management',
       inject: 'body',
       filename: 'index.html',
       favicon: './public/a.ico',
-      template: './public/index.html',
-      chunks: ['common', 'vendor', 'app']
+      template: './public/index.html'
+      // chunks: ['common', 'vendor', 'main']
     }),
 
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-      inject: 'body',
-      filename: 'admin.html',
-      favicon: './public/a.ico',
-      template: './public/admin.html',
-      chunks: ['common', 'vendor', 'admin']
-    }),
+    // new HtmlWebpackPlugin({
+    //   // title: 'Output Management',
+    //   inject: 'body',
+    //   filename: 'admin.html',
+    //   favicon: './public/a.ico',
+    //   template: './public/admin.html',
+    //   chunks: ['common', 'vendor', 'admin']
+    // }),
 
     // new WorkboxPlugin.GenerateSW({
     //   // 这些选项帮助 ServiceWorkers 快速启用

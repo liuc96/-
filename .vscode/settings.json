@@ -1,7 +1,6 @@
 {
     "editor.formatOnPaste": false,
     "editor.formatOnType": false,
-    "editor.fontSize": 18,
     // 保存文件时按照eslint配置自动处理vue/js/jsx/ts/json文件格式
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true

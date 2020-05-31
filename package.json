@@ -70,8 +70,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+
+    "build": "npm run build:admin && npm run build:manage && npm run build:main",
+    "build:admin": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "build:main": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "build:manage": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config webpack.dev.js",
+    "dev:admin": "cross-env NODE_ENV=development webpack-dev-server --progress --config webpack.dev.js",
+    "dev:main": "cross-env NODE_ENV=development webpack-dev-server --progress --config webpack.dev.js",
+    "dev:manage": "cross-env NODE_ENV=development webpack-dev-server --progress --config webpack.dev.js",
+
     "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build"
   },
   "husky": {

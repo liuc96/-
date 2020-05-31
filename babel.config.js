@@ -11,8 +11,6 @@ module.exports = {
     ]
   ],
   plugins: [
-    // element-ui按需加载插件
-    // ['component', { libraryName: 'element-ui', styleLibraryName: 'theme-chalk' }, 'component'],
     [
       '@babel/plugin-transform-runtime',
       {

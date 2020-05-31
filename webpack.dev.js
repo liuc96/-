@@ -3,6 +3,8 @@ const merge = require('webpack-merge') // webpack 服务端 客户端 配置文�
 const common = require('./webpack.common.js')
 const webpack = require('webpack')
 
+const config = require('./webpack.config.js') // 打包配置文件
+
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
@@ -11,8 +13,9 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, 'public'), // 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要
     clientLogLevel: 'error', // none, error, warning 或者 info（默认值） 开发工具(DevTools)的控制台(console)将显示消息
     compress: true, // 一切服务启用gzip压缩
-    host: 'localhost', // 指定使用一个 host。默认是 localhost。如果你希望服务器外部可访问(本机IVP4地址)
-    port: 8080, // 指定要监听请求的端口号
+    host: '0.0.0.0', // 指定使用一个 host。默认是 localhost
+    useLocalIp: true, // 使用ivp4
+    port: config.port, // 指定要监听请求的端口号
     hot: true, // 启用 webpack 的模块热替换特性
     overlay: true, // 当存在编译错误或警告时，在浏览器中显示全屏覆盖
     // noInfo: true, // 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。

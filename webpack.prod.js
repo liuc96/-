@@ -5,6 +5,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin') // 开启
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清理 /dist 文件夹
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin // 打包分析
 
+const config = require('./webpack.config.js') // 打包配置文件
 // const OptimizeCss = require('optimize-css-assets-webpack-plugin') // 优化压缩css
 
 module.exports = merge(common, {
@@ -30,7 +31,7 @@ module.exports = merge(common, {
     new BundleAnalyzerPlugin({ // 127.0.0.1:8888
       analyzerMode: 'server',
       analyzerHost: '127.0.0.1',
-      analyzerPort: 8888, // 运行后的端口号
+      analyzerPort: config.port, // 运行后的端口号
       reportFilename: 'report.html',
       defaultSizes: 'parsed',
       openAnalyzer: true,
