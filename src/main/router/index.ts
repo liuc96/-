@@ -18,7 +18,10 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: About
+    component: About,
+    meta: {
+      requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
+    }
   },
   {
     path: '/news',
@@ -36,7 +39,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
+  if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
     if (sessionStorage.userName !== '') { // 判断缓存里面是否有 userName  //在登录的时候设置它的值
       next()
     } else {

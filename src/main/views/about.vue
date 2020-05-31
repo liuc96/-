@@ -22,7 +22,6 @@
     <p>2234</p>
     <p>1223</p>
     <p>1223</p>
-    <el-button :plain="true">打开消息提示</el-button>
     <p>1223</p>
     <p>1223</p>
     <p>1223</p>
@@ -98,8 +97,9 @@ export default class About extends Vue {
 
   private created (): void {
     this.$store.dispatch({
-      type: 'global/REQUEST_LOGIN'
-
+      type: 'global/REQUEST_LOGIN',
+      name: 'zhangsan',
+      password: '123456'
     })
 
     // axios.get('/mock/news').then(res => { // url即在mock.js中定义的

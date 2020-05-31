@@ -17,9 +17,6 @@ export default {
     this.$store.dispatch({
       type: 'global/REQUEST_LOGIN',
       data: '12345'
-      //                    clientNum: 'o0CuEuC_Xuja13cETBa4lFDjjeZM',
-      // clientNum: this.$store.state.bill.clientNum,
-      // pageFirst: this.$store.state.bill.pageFirst
     })
   },
 
