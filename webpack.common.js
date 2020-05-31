@@ -1,8 +1,22 @@
 const path = require('path')
-// const webpack = require('webpack')
 
+// const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin') // 引入VUE插件
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成html入口文件 并把webpack 打包后的静态文件自动插入到这个html 文件当中。
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清理 /dist 文件夹
+const threadLoader = require('thread-loader') // 多线程打包
+
+threadLoader.warmup({
+  // pool options, like passed to loader options
+  // must match loader options to boot the correct pool
+}, [
+  // modules to load
+  // can be any module, i. e.
+  'babel-loader',
+  'less-loader',
+  'sass-loader',
+  'postcss-loader'
+])
 // const WorkboxPlugin = require('workbox-webpack-plugin') // PWA
 
 const config = require('./webpack.config.js') // 打包配置文件
@@ -111,17 +125,6 @@ module.exports = {
           name: assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      // 它会应用到普通的 `.css` 文件
-      // 以及 `.vue` 文件中的 `<style>` 块
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     'vue-style-loader',
-      //     'css-loader',
-      //     'postcss-loader'
-      //   ],
-      //   exclude: /node_modules/
-      // },
       {
         test: /\.(less|css)$/,
         use: [
@@ -129,6 +132,18 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'less-loader',
+          'postcss-loader'
+        ]
+        // exclude: /node_modules/,
+        // include: [resolve('src'), resolve('test')]
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          'thread-loader',
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader',
           'postcss-loader'
         ]
         // exclude: /node_modules/,
@@ -156,6 +171,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       // title: 'Output Management',
       inject: 'body',

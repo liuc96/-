@@ -36,13 +36,13 @@
 # install dependencies/拉取项目,在项目路径下执行
 npm install
 
-# serve with hot reload at localhost:8080
-# npm安装依赖后,运行node服务器,打开 localhost:8080 预览 (已运行热更新功能)
-npm run dev
+# serve with hot reload at 0.0.0.0:port
+# npm安装依赖后,运行node服务器,打开 0.0.0.0:port 预览 (已运行热更新功能)
+npm run dev:projectName
 
 # build for production with minification
 # 当修改代码后,需要手动打包发布时,运行npm run build命令进行打包
-npm run build
+npm run build:projectName
 
 # 打包生产模式 -- 查看包分析报告
 npm run analyz
@@ -94,4 +94,6 @@ npm run analyz
 - `Vue`  组件内  `script` 变量/函数命名使用驼峰
 
 
+
+## package.json配置说明
 
